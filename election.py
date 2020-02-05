@@ -3,7 +3,6 @@ class Election:
     def __init__(self, year, state, special, totalVotes):
         self.year = year
         self.state = state
-        self.special = special
         self.candidates = []
         self.totalVotes = totalVotes
 
