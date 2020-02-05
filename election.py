@@ -1,11 +1,10 @@
 class Election:
 
-    def __init__(self, year, state, party, totalVotes, winner):
+    def __init__(self, year, state, party, totalVotes):
         self.year = year
         self.state = state
         self.party = party
         self.totalVotes = totalVotes
-        self.winner = winner
 
     def add_candidate(self, candidate):
         self.candidates.append(candidate)
