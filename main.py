@@ -7,12 +7,8 @@
 import matplotlib.pyplot as plt'''
 
 import datetime
-import pprint
 from election import *
 from candidate import *
-
-
-
 
 senators = []
 elections = []
@@ -33,29 +29,41 @@ for line in roster_f:
     line = line.strip()
     senators.append(line.split(','))
 
-elections_f = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
-for i in range(len(elections_f)):
-    elections_f[i] = elections_f[i].split('\t')
+f = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
+for i in range(len(f)):
+    f[i] = f[i].split('\t')
 
 
 def fileSort():
-    global elections_f
+    global f
 
-    for e in range(len(elections_f)):
+    for e in range(len(f)):
         #print('DEBUG ' + str(e))
-        elections_f[e] = [elections_f[e][0], elections_f[e][1], elections_f[e][10], elections_f[e][11],
-                          elections_f[e][14], elections_f[e][15]]
+        f[e] = [f[e][0], f[e][1], f[e][11],
+                f[e][14], f[e][15]]
 
-
-    for e in reversed(elections_f):
-        if "NA" in e[2] and "NA" in e[3]:
-            elections_f.pop(elections_f.index(e))
+    for e in reversed(f):
+        if "NA" in e[2]:
+            f.pop(f.index(e))
 
 
 fileSort()
 
+for e in f:
+    print(e)
 
-def electionSort():
+'''print('debug 1')
+
+for e in f:
+    print('LINE 58:',e)
+    elections += [Election(int(e[0]),e[1],int(e[5])]
+
+print('debug 2')
+
+print(elections)'''
+
+
+'''def electionSort():
     global elections_f
     global elections
 
@@ -63,7 +71,7 @@ def electionSort():
         i = 1
 
         if e == elections_f[0] or elections_f[i-1][0] and e[1] == elections_f[i-1][1]:
-            print('debug')
+            elections += [Election(e[0], e[1], e[15])]
             if e[0] != elections_f[i-1][0] and e[1] != elections_f[i-1][1]:
                 i += 1
                 print('debug:', i)
@@ -72,7 +80,7 @@ def electionSort():
             print('debug 2')
 
 
-electionSort()
+electionSort()'''
 
 
 
