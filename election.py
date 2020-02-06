@@ -7,11 +7,11 @@ class Election:
         self.totalVotes = totalVotes
 
     def add_candidate(self, candidate):
-        self.candidates.append(candidate)
+        self.party.append(candidate)
 
     def __str__(self):
-        to_print = str(self.year) + ' ' + self.state + ' ' + str(self.special) + ' ' + str(self.totalVotes)
-        for candidate in self.candidates:
+        to_print = str(self.year) + ' ' + self.state + ' ' + str(self.party) + ' ' + str(self.totalVotes)
+        for candidate in self.party:
             to_print += '\n' + str(candidate)
         return to_print
 
@@ -36,3 +36,7 @@ class Election:
             return self.state <= other.state'''
 
     def __gt__(self, other):
+        if self.state == other.state:
+            return self.year > other.year
+        else:
+            return self.state > other.state
