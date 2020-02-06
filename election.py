@@ -18,6 +18,7 @@ class Election:
     #def election_winner(self):
         #for election in election_results:
             #if election[1] == election[1] and election[0] == election[0]:
+
     def __eq__(self, other):
         if isinstance(other, Election):
             return self.year == other.year and self.state == other.state
