@@ -1,16 +1,50 @@
 # Election Prediction AI - developed to predict the 2020 US Senate Elections
 # Jack Preble
 # Jan. 24, 2020
-# Why is ATCS hard, Mr. Cochran??
-
-'''import geopandas as gpd
-import matplotlib.pyplot as plt'''
-
+# Why is ATCS so hard, Mr. Cochran??
+import geopandas as gpd
 import datetime
 from election import *
 from candidate import *
 
-senators = []
+senators = {}
+elections = {}
+
+a = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
+for i in range(len(a)):
+    a[i] = f[i].split('\t')
+
+
+f = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
+for i in range(len(f)):
+    f[i] = f[i].split('\t')
+
+
+print(a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''senators = []
 elections = []
 
 class1 = []
@@ -23,9 +57,9 @@ class3yr = 2022
 
 currentyr = int(datetime.datetime.now().year) #https://www.quora.com/How-do-I-get-the-current-year-as-an-int-value-in-Python
 
-roster_f = open('senators-set.csv')
+a = open('senators-set.csv')
 
-for line in roster_f:
+for line in a:
     line = line.strip()
     senators.append(line.split(','))
 
@@ -33,6 +67,9 @@ f = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
 for i in range(len(f)):
     f[i] = f[i].split('\t')
 
+
+for e in g:
+    print(e)
 
 def fileSort():
     global f
@@ -50,9 +87,10 @@ def fileSort():
 fileSort()
 
 for e in f:
-    print(e)
+    pass
 
-'''print('debug 1')
+
+print('debug 1')
 
 for e in f:
     print('LINE 58:',e)
@@ -60,10 +98,10 @@ for e in f:
 
 print('debug 2')
 
-print(elections)'''
+print(elections)
 
 
-'''def electionSort():
+def electionSort():
     global elections_f
     global elections
 
@@ -80,14 +118,14 @@ print(elections)'''
             print('debug 2')
 
 
-electionSort()'''
+electionSort()
 
 
 
 
 
 
-'''for line in elections_f:
+for line in elections_f:
     try:
         line = line.strip().split('\t')
         if line[1] not in elections_MASTER and line[0] not in elections_MASTER:
@@ -152,11 +190,11 @@ def main():
     electionYear()
 
 if __name__ == "__main__":
-    main()'''
+    main()
 
 #elections()
 
 
 
-'''for election in election_results:
+for election in election_results:
     print(election)'''
