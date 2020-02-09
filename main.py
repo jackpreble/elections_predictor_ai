@@ -6,21 +6,72 @@ import geopandas as gpd
 import datetime
 from election import *
 from candidate import *
+import matplotlib.pyplot as plt
 
 senators = {}
 elections = {}
 
 a = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
 for i in range(len(a)):
-    a[i] = f[i].split('\t')
+    a[i] = a[i].split('\t')
+
+for e in range(len(a)):
+        #print('DEBUG ' + str(e))
+        a[e] = [a[e][0], a[e][1], a[e][11],
+                a[e][14], a[e][15]]
+
+year = []
+nc = []
+num = []
+
+d = 0
+r = 0
+t = 0
+
+for e in a:
+    if e[1] == 'North Carolina':
+        nc.append(e)
+
+for e in nc:
+    if e[0] not in year:
+        year.append(e[0])
 
 
-f = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
-for i in range(len(f)):
-    f[i] = f[i].split('\t')
+for e in reversed(nc):
+    if e[2] != 'republican' and e[2] != 'democrat':
+        nc.remove(e)
+
+while True:
+    count = 1
+    n = 0
+    if nc[count][0] == nc[count-1][0]:
+        if e[2] == 'democrat':
+            d += int(e[3])/int(e[4])
+        elif e[2] == 'republican':
+            r += int(e[3])/int(e[4])
+    t += d - r
+    num.append(t)
+    d = 0
+    r = 0
+    t = 0
+    count += 2
+    n += 1
+    if count == 29:
+        break
+
+print(year)
+print(num)
+
+'''plt.plot(year,num)
+plt.xlabel('Year')
+plt.ylabel('Party')'''
+
+'''for e in nc:
+    count = 1
+    if reversed(nc[count+1][0]) == reversed(nc[count][0]):
+        print('debug')'''
 
 
-print(a)
 
 
 
