@@ -20,51 +20,124 @@ for e in range(len(a)):
         a[e] = [a[e][0], a[e][1], a[e][11],
                 a[e][14], a[e][15]]
 
-year = []
-nc = []
-num = []
 
-d = 0
-r = 0
-t = 0
+def dataAnalysisNC():
+    global a
 
-for e in a:
-    if e[1] == 'North Carolina':
-        nc.append(e)
+    year = []
+    nc = []
+    num = []
 
-for e in nc:
-    if e[0] not in year:
-        year.append(e[0])
-
-
-for e in reversed(nc):
-    if e[2] != 'republican' and e[2] != 'democrat':
-        nc.remove(e)
-
-while True:
-    count = 1
-    n = 0
-    if nc[count][0] == nc[count-1][0]:
-        if e[2] == 'democrat':
-            d += int(e[3])/int(e[4])
-        elif e[2] == 'republican':
-            r += int(e[3])/int(e[4])
-    t += d - r
-    num.append(t)
     d = 0
     r = 0
     t = 0
-    count += 2
-    n += 1
-    if count == 29:
-        break
 
-print(year)
-print(num)
+    dems = []
+    gop = []
 
-'''plt.plot(year,num)
-plt.xlabel('Year')
-plt.ylabel('Party')'''
+    for e in a:
+        if e[1] == 'North Carolina':
+            nc.append(e)
+
+    for e in nc:
+        if e[0] not in year:
+            year.append(e[0])
+
+    for e in reversed(nc):
+        if e[2] != 'republican' and e[2] != 'democrat':
+            nc.remove(e)
+
+    for e in range(len(nc)):
+        nc[e] = [nc[e][0], nc[e][2], nc[e][3], nc[e][4]]
+
+    for e in nc:
+        #print(e)
+        if e[1] == 'democrat':
+            dems.append(e)
+        else:
+            gop.append(e)
+
+    num.append((int(dems[0][2]))-(int(gop[0][2])))
+    num.append((int(dems[1][2])) - (int(gop[1][2])))
+    num.append((int(dems[2][2])) - (int(gop[2][2])))
+    num.append((int(dems[3][2])) - (int(gop[3][2])))
+    num.append((int(dems[4][2])) - (int(gop[4][2])))
+    num.append((int(dems[5][2])) - (int(gop[5][2])))
+    num.append((int(dems[6][2])) - (int(gop[6][2])))
+    num.append((int(dems[7][2])) - (int(gop[7][2])))
+    num.append((int(dems[8][2])) - (int(gop[8][2])))
+    num.append((int(dems[9][2])) - (int(gop[9][2])))
+    num.append((int(dems[10][2])) - (int(gop[10][2])))
+    num.append((int(dems[11][2])) - (int(gop[11][2])))
+    num.append((int(dems[12][2])) - (int(gop[12][2])))
+    num.append((int(dems[13][2])) - (int(gop[13][2])))
+
+    plt.xlabel('Year')
+    plt.ylabel('Party')
+    plt.plot(year, num)
+    plt.show()
+
+
+def dataAnalysisNY():
+    global a
+
+    year = []
+    ny = []
+    num = []
+
+    d = 0
+    r = 0
+    t = 0
+
+    dems = []
+    gop = []
+
+    for e in a:
+        if e[1] == 'New York':
+            ny.append(e)
+
+    for e in ny:
+        if e[0] not in year:
+            year.append(e[0])
+
+    for e in reversed(ny):
+        if e[2] != 'republican' and e[2] != 'democrat':
+            ny.remove(e)
+
+    for e in range(len(ny)):
+        ny[e] = [ny[e][0], ny[e][2], ny[e][3], ny[e][4]]
+
+    for e in ny:
+        # print(e)
+        if e[1] == 'democrat':
+            dems.append(e)
+        else:
+            gop.append(e)
+
+    num.append((int(dems[0][2])) - (int(gop[0][2])))
+    num.append((int(dems[1][2])) - (int(gop[1][2])))
+    num.append((int(dems[2][2])) - (int(gop[2][2])))
+    num.append((int(dems[3][2])) - (int(gop[3][2])))
+    num.append((int(dems[4][2])) - (int(gop[4][2])))
+    num.append((int(dems[5][2])) - (int(gop[5][2])))
+    num.append((int(dems[6][2])) - (int(gop[6][2])))
+    num.append((int(dems[7][2])) - (int(gop[7][2])))
+    num.append((int(dems[8][2])) - (int(gop[8][2])))
+    num.append((int(dems[9][2])) - (int(gop[9][2])))
+    num.append((int(dems[10][2])) - (int(gop[10][2])))
+    num.append((int(dems[11][2])) - (int(gop[11][2])))
+    num.append((int(dems[12][2])) - (int(gop[12][2])))
+    num.append((int(dems[13][2])) - (int(gop[13][2])))
+    num.append((int(dems[14][2])) - (int(gop[14][2])))
+
+    plt.xlabel('Year')
+    plt.ylabel('Party')
+    plt.plot(year, num)
+    plt.show()
+
+
+dataAnalysisNC()
+dataAnalysisNY()
 
 '''for e in nc:
     count = 1
