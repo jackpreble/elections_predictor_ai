@@ -4,8 +4,7 @@
 # Why is ATCS so hard, Mr. Cochran??
 import geopandas as gpd
 import datetime
-from election import *
-from candidate import *
+from state import *
 import matplotlib.pyplot as plt
 
 senators = {}
@@ -19,6 +18,13 @@ for e in range(len(a)):
         #print('DEBUG ' + str(e))
         a[e] = [a[e][0], a[e][1], a[e][11],
                 a[e][14], a[e][15]]
+
+for e in reversed(a):
+    if e[1] != 'North Carolina':
+        a.remove(e)
+
+for e in a:
+    print(e)
 
 
 def dataAnalysisNC():
@@ -57,87 +63,35 @@ def dataAnalysisNC():
         else:
             gop.append(e)
 
-    num.append((int(dems[0][2]))-(int(gop[0][2])))
-    num.append((int(dems[1][2])) - (int(gop[1][2])))
-    num.append((int(dems[2][2])) - (int(gop[2][2])))
-    num.append((int(dems[3][2])) - (int(gop[3][2])))
-    num.append((int(dems[4][2])) - (int(gop[4][2])))
-    num.append((int(dems[5][2])) - (int(gop[5][2])))
-    num.append((int(dems[6][2])) - (int(gop[6][2])))
-    num.append((int(dems[7][2])) - (int(gop[7][2])))
-    num.append((int(dems[8][2])) - (int(gop[8][2])))
-    num.append((int(dems[9][2])) - (int(gop[9][2])))
-    num.append((int(dems[10][2])) - (int(gop[10][2])))
-    num.append((int(dems[11][2])) - (int(gop[11][2])))
-    num.append((int(dems[12][2])) - (int(gop[12][2])))
-    num.append((int(dems[13][2])) - (int(gop[13][2])))
+    num.append(((int(dems[0][2])) - (int(gop[0][2])))/(int(nc[0][3])))
+    num.append(((int(dems[1][2])) - (int(gop[1][2])))/(int(nc[1][3])))
+    num.append(((int(dems[2][2])) - (int(gop[2][2])))/(int(nc[2][3])))
+    num.append(((int(dems[3][2])) - (int(gop[3][2])))/(int(nc[3][3])))
+    num.append(((int(dems[4][2])) - (int(gop[4][2])))/(int(nc[4][3])))
+    num.append(((int(dems[5][2])) - (int(gop[5][2])))/(int(nc[5][3])))
+    num.append(((int(dems[6][2])) - (int(gop[6][2])))/(int(nc[6][3])))
+    num.append(((int(dems[7][2])) - (int(gop[7][2])))/(int(nc[7][3])))
+    num.append(((int(dems[8][2])) - (int(gop[8][2])))/(int(nc[8][3])))
+    num.append(((int(dems[9][2])) - (int(gop[9][2])))/(int(nc[9][3])))
+    num.append(((int(dems[10][2])) - (int(gop[10][2])))/(int(nc[10][3])))
+    num.append(((int(dems[11][2])) - (int(gop[11][2])))/(int(nc[11][3])))
+    num.append(((int(dems[12][2])) - (int(gop[12][2])))/(int(nc[12][3])))
+    num.append(((int(dems[13][2])) - (int(gop[13][2])))/(int(nc[13][3])))
+
+    print(num)
 
     plt.xlabel('Year')
     plt.ylabel('Party')
-    plt.plot(year, num)
+    plt.scatter(year, num)
     plt.show()
 
 
-def dataAnalysisNY():
-    global a
-
-    year = []
-    ny = []
-    num = []
-
-    d = 0
-    r = 0
-    t = 0
-
-    dems = []
-    gop = []
-
-    for e in a:
-        if e[1] == 'New York':
-            ny.append(e)
-
-    for e in ny:
-        if e[0] not in year:
-            year.append(e[0])
-
-    for e in reversed(ny):
-        if e[2] != 'republican' and e[2] != 'democrat':
-            ny.remove(e)
-
-    for e in range(len(ny)):
-        ny[e] = [ny[e][0], ny[e][2], ny[e][3], ny[e][4]]
-
-    for e in ny:
-        # print(e)
-        if e[1] == 'democrat':
-            dems.append(e)
-        else:
-            gop.append(e)
-
-    num.append((int(dems[0][2])) - (int(gop[0][2])))
-    num.append((int(dems[1][2])) - (int(gop[1][2])))
-    num.append((int(dems[2][2])) - (int(gop[2][2])))
-    num.append((int(dems[3][2])) - (int(gop[3][2])))
-    num.append((int(dems[4][2])) - (int(gop[4][2])))
-    num.append((int(dems[5][2])) - (int(gop[5][2])))
-    num.append((int(dems[6][2])) - (int(gop[6][2])))
-    num.append((int(dems[7][2])) - (int(gop[7][2])))
-    num.append((int(dems[8][2])) - (int(gop[8][2])))
-    num.append((int(dems[9][2])) - (int(gop[9][2])))
-    num.append((int(dems[10][2])) - (int(gop[10][2])))
-    num.append((int(dems[11][2])) - (int(gop[11][2])))
-    num.append((int(dems[12][2])) - (int(gop[12][2])))
-    num.append((int(dems[13][2])) - (int(gop[13][2])))
-    num.append((int(dems[14][2])) - (int(gop[14][2])))
-
-    plt.xlabel('Year')
-    plt.ylabel('Party')
-    plt.plot(year, num)
-    plt.show()
+def main():
+    dataAnalysisNC()
 
 
-dataAnalysisNC()
-dataAnalysisNY()
+if __name__ == '__main__':
+    main()
 
 '''for e in nc:
     count = 1
