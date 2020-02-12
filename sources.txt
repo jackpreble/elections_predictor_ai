@@ -2,3 +2,6 @@ Sources for Data Sets:
 
 senators-set.csv: https://www.senate.gov/general/contact_information/senators_cfm.cfm?Class=1 (CSV constructed by me)
 1976-2018-senate.tab: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/PEJ5QU
+CVAP_2013-2017_ACS_csv_files & State.csv: https://www.census.gov/data/datasets/2016/dec/rdo/2013-2017-CVAP.html
+
+Party Aff. by Ethnicity: https://www.people-press.org/2018/03/20/1-trends-in-party-affiliation-among-demographic-groups/
