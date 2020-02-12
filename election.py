@@ -41,3 +41,5 @@ class Election:
             return self.year > other.year
         else:
             return self.state > other.state
+
+
