@@ -88,7 +88,8 @@ def analysis():
     gnum = []
 
     for y in year:
-        if y = year[-1]:
+        if y == year[-1]:
+            pass
 
 
 def main():
