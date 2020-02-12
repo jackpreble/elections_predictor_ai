@@ -7,9 +7,6 @@ import datetime
 from state import *
 import matplotlib.pyplot as plt
 
-senators = {}
-elections = {}
-
 a = [line.rstrip('\n') for line in open('1976-2018-senate.tab')] # from Shan
 for i in range(len(a)):
     a[i] = a[i].split('\t')
@@ -23,20 +20,18 @@ for e in reversed(a):
     if e[1] != 'North Carolina':
         a.remove(e)
 
-for e in a:
-    print(e)
+nc = []
+
+year = []
+num = []
+
+d = 0
+r = 0
+t = 0
 
 
-def dataAnalysisNC():
-    global a
-
-    year = []
-    nc = []
-    num = []
-
-    d = 0
-    r = 0
-    t = 0
+def scatterplot():
+    global a, nc, year, num, d, r, t
 
     dems = []
     gop = []
@@ -85,9 +80,19 @@ def dataAnalysisNC():
     plt.scatter(year, num)
     plt.show()
 
+def analysis():
+    global a, nc, year, num, d, r, t
+
+    count = 1
+
+    gnum = []
+
+    for y in year:
+        if y = year[-1]:
+
 
 def main():
-    dataAnalysisNC()
+    scatterplot()
 
 
 if __name__ == '__main__':
