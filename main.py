@@ -73,8 +73,6 @@ def scatterplot():
     num.append(((int(dems[12][2])) - (int(gop[12][2])))/(int(nc[12][3])))
     num.append(((int(dems[13][2])) - (int(gop[13][2])))/(int(nc[13][3])))
 
-    print(num)
-
     plt.xlabel('Year')
     plt.ylabel('Party')
     plt.scatter(year, num)
